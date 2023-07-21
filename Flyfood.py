@@ -1,8 +1,7 @@
-import time
+from time import process_time
+comeco = process_time()
 
-comeco = time.time()
-
-arquivo = open('C:\\Users\\gutuc\\Desktop\\Matriz.txt', 'r')
+arquivo = open('C:\\Users\\gutuc\\Desktop\\entrada3.txt', 'r')
 
 n, m = arquivo.readline().split()
 linhas = arquivo.read().splitlines()
@@ -21,10 +20,6 @@ for i in range(int(n)):
             else:
                 coords.append([i, j])
                 pontos_entr.append(linha[j])
-
-# print(ponto_org)
-# print(pontos_entr)
-# print(coords)
 
 # Realiza a permutação dos pontos de entrega
 def permutacao(pontos):
@@ -61,16 +56,19 @@ for caminho in caminhos:
         menor_custo = custo_total
     else:
         if custo_total < menor_custo:
-            custo_total = menor_custo
+            menor_custo = custo_total
             melhor_caminho = caminho
 
-print(menor_custo, melhor_caminho)
-
 # Pegando as posições do melhor caminho
-# melher_perc = ''
-# for posicao in melhor_caminho:
-#     print(posicao)
+melhor_perc = ''
+for posicao in melhor_caminho:
+    linha, coluna = posicao
+    ponto = linhas[linha].split()[coluna]
+    melhor_perc += ponto
+    melhor_perc = list(melhor_perc)
 
-fim = time.time()
+print(menor_custo, melhor_perc)
+
+fim = process_time()
 tempo = (fim - comeco)
-print(f"O tempo de execução foi: {tempo} segundos")
+print(f"O tempo de execução foi: {tempo} nanosegundos")
