@@ -1,7 +1,7 @@
 from time import process_time
 comeco = process_time()
 
-arquivo = open('entrada3.txt', 'r')
+arquivo = open('Matriz.txt', 'r')
 
 n, m = arquivo.readline().split()
 linhas = arquivo.read().splitlines()
