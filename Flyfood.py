@@ -3,13 +3,12 @@ soma_tempo = 0
 for _ in range(30):
     comeco = process_time()
 
-    arquivo = open('entrada5.txt', 'r')
+    arquivo = open('C:\\Users\\gutuc\\Desktop\\entrada9.txt', 'r')
 
     n, m = arquivo.readline().split()
     linhas = arquivo.read().splitlines()
 
     ponto_org = []
-    #pontos_entr = []
     coords = []
 
     # Pega os pontos e coordenadas
@@ -21,7 +20,6 @@ for _ in range(30):
                     ponto_org.append([i, j])
                 else:
                     coords.append([i, j])
-                    # pontos_entr.append(linha[j])
 
     # Realiza a permutação dos pontos de entrega
     def permutacao(pontos):
@@ -43,7 +41,7 @@ for _ in range(30):
         dist = abs(pi[0] - pj[0]) + abs(pi[1] - pj[1])
         return dist
 
-    menor_custo = None
+    menor_custo = float('inf')
     melhor_caminho = None
 
     for caminho in caminhos:
@@ -54,10 +52,7 @@ for _ in range(30):
             soma = distancia(caminho[ponto_i], caminho[ponto_i+1])
             custo += soma
         custo_total = custo + saida + volta
-        if menor_custo == None:
-            menor_custo = custo_total
-        else:
-            if custo_total < menor_custo:
+        if custo_total < menor_custo:
                 menor_custo = custo_total
                 melhor_caminho = caminho
 
