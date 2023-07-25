@@ -3,7 +3,7 @@ soma_tempo = 0
 for _ in range(30):
     comeco = process_time()
 
-    arquivo = open('C:\\Users\\gutuc\\Desktop\\entrada9.txt', 'r')
+    arquivo = open('entrada9.txt', 'r')
 
     n, m = arquivo.readline().split()
     linhas = arquivo.read().splitlines()
